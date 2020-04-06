@@ -13,7 +13,7 @@ history.listen((location, action) => {
   console.log(location, action);
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    event: 'pageview',
+    event: 'Simulated Pageview',
     pathname: location.pathname,
   });
   console.log(window.dataLayer);
@@ -24,23 +24,36 @@ history.listen((location, action) => {
   //  });
 });
 
-function App() {
-  return (
-    <Router history={history}>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/browse">
-          <Browse />
-        </Route>
-        <Route path="/what-we-do">
-          <WhatWeDo />
-        </Route>
-      </Switch>
-    </Router>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'Simulated Pageview',
+      pathname: window.location.pathname,
+    });
+  };
+
+  render() {
+    return (
+      <Router history={history}>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/browse">
+            <Browse />
+          </Route>
+          <Route path="/what-we-do">
+            <WhatWeDo />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
