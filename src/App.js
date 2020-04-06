@@ -14,7 +14,6 @@ history.listen((location, action) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'Simulated Pageview',
-    pathname: location.pathname,
   });
   console.log(window.dataLayer);
   // optional update to GA for pageviews
@@ -32,7 +31,6 @@ class App extends React.Component {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'Simulated Pageview',
-      pathname: window.location.pathname,
     });
   };
 
