@@ -18,6 +18,7 @@ history.listen((location, action) => {
   });
   console.log(window.dataLayer);
   // optional update to GA for pageviews
+  // should be used if GA implemented through react app instead of snippet
   //   window.ga('send', 'pageview', {
   //     page: window.location.pathname
   //  });
